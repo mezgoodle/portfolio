@@ -10,5 +10,6 @@ def index():
     repos = requests.get(repo_url).json()[:9]
     return render_template('index.html', repos=repos)
 
+
 if __name__ == '__main__':
     app.run(debug=True)
