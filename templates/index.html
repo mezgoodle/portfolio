@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Maxim Zavalniuk
+{% endblock %}
+
+{% block content %}
+
+<body>
+    {% include 'includes/header.html' %}
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="font-weight-light">Welcome to my minimal portfolio!</h1>
+                        <p class="lead text-muted">Hello! My name is Maxim Zavalniuk and I am from Kyiv, Ukraine. I like to learn new things,share them and help other people. I am always looking for new interesting work. And I love GitHub. 😊</p>
+                        <p>
+                            <a href="https://github.com/mezgoodle" title="GitHub" class="btn btn-dark my-2">GitHub profile</a>
+                            <a href="https://gitlab.com/mezgoodle" title="GitLab" class="btn btn-warning my-2">GitLab profile</a>
+                        </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                  <p class="display-5">My last nine projects</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                  Coding <cite title="non-stop">everyday</cite>
+                </figcaption>
+            </figure>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% for repo in repos %}
+                        {% include 'includes/project_card.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    {% include 'includes/footer.html' %}
+
+</body>
+
+{% endblock %}
