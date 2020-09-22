@@ -6,6 +6,11 @@ Hello everyone! This is the repository of my portfolio site.
 
 ## Table of contents
 
+- [Table of contents](#table-of-contents)
+- [Motivation](#motivation)
+- [Badges](#badges)
+- [Tech/framework used](#techframework-used)
+- [License](#license)
 
 ## Motivation
 
