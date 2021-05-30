@@ -31,6 +31,7 @@ export default {
     const res = await fetch('https://api.github.com/users/mezgoodle/repos?sort=updated');
     const repos = await res.json();
     this.repos = repos;
+    this.loading = false;
   },
   components: {
     Header, Main, Loader, Profiles
