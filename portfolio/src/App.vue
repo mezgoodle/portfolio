@@ -30,7 +30,7 @@ export default {
   async mounted () {
     const res = await fetch('https://api.github.com/users/mezgoodle/repos?sort=updated');
     const repos = await res.json();
-    this.repos = repos;
+    this.repos = repos.slice(0, 9);
     this.loading = false;
   },
   components: {
