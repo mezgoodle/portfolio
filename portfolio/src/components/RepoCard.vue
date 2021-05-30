@@ -1,17 +1,17 @@
 <template>
   <div class="col">
     <div class="card shadow-sm">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Templates" preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: {{repo.name}}" preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
           <title>Templates</title>
-          <rect width="100%" height="100%" fill="#55595c"/>
-          <text x="50%" y="50%" fill="#eceeef" dy=".3em">Templates</text>
+          <rect width="100%" height="100%" fill="green"/>
+          <text x="50%" y="50%" fill="#eceeef" dy=".3em">{{repo.name}}</text>
         </svg>
         <div class="card-body">
-          <p class="card-text">📚I create this repository to help me create useful files in every my project. This is my style of developing🔖 </p>
+          <p class="card-text">{{repo.description}}</p>
           <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <a href="https://github.com/mezgoodle/Templates" class="pr-1" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
-                <a href="https://github.com/mezgoodle/Templates/archive/master.zip"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                <a v-bind:href=repo.html_url class="pr-1" target="_blank"><button type="button" class="btn btn-sm btn-outline-primary">View</button></a>
+                <a v-bind:href=archiveUrl><button type="button" class="btn btn-sm btn-outline-info">Download</button></a>
               </div>
               <small class="text-muted">2 stars</small>
           </div>
@@ -29,6 +29,11 @@ export default {
       required: true
     }
   },
+  computed: {
+    archiveUrl () {
+      return `${this.repo.html_url}/archive/${this.repo.default_branch}.zip`
+    }
+  }
 }
 </script>
 
