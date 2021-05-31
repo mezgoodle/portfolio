@@ -10,11 +10,13 @@
     <div v-else class="container alert alert-danger text-center" role="alert">
       No projects
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import Loader from '@/components/Loader.vue'
 import Profiles from '@/components/Profiles.vue'
 import Main from '@/components/Main.vue'
@@ -34,7 +36,7 @@ export default {
     this.loading = false;
   },
   components: {
-    Header, Main, Loader, Profiles
+    Header, Main, Loader, Profiles, Footer
   }
 }
 </script>
