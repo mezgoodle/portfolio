@@ -1,0 +1,30 @@
+name: Build Vue
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint project
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 15
+    - run: npm ci
+    - run: npm run lint
+
+  build_vue:
+    needs: lint
+    runs-on: ubuntu-latest
+    name: Build Vue
+    steps:
+    - uses: actions/checkout@v2
+    - id: Build-Vue
+      uses: xRealNeon/VuePagesAction@1.0.0
+      with:
+        username: 'mezidia'
+        reponame: 'mezidia'
+        token: ${{ secrets.TOKEN }}
