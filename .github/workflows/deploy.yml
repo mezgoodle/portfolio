@@ -25,6 +25,6 @@ jobs:
     - id: Build-Vue
       uses: xRealNeon/VuePagesAction@1.0.0
       with:
-        username: 'mezidia'
-        reponame: 'mezidia'
+        username: 'mezgoodle'
+        reponame: 'portfolio'
         token: ${{ secrets.TOKEN }}
