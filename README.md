@@ -1,16 +1,8 @@
 # portfolio
 
-[![Language](https://img.shields.io/badge/language-python-brightgreen?style=flat-square)](https://www.python.org/)
+[![Language](https://img.shields.io/badge/language-javascript-brightgreen?style=flat-square)](https://www.python.org/)
 
 Hello everyone! This is the repository of my portfolio site.
-
-## Table of contents
-
-- [Table of contents](#table-of-contents)
-- [Motivation](#motivation)
-- [Badges](#badges)
-- [Tech/framework used](#techframework-used)
-- [License](#license)
 
 ## Motivation
 
@@ -27,9 +19,8 @@ Other badges
 
 **Built with**
 
-- [Python](https://www.python.org/)
-- [requests](https://pypi.org/project/requests/)
-- [Flask](https://flask.palletsprojects.com/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [VueJS](https://vuejs.org/)
 - [Bootstrap V5](https://v5.getbootstrap.com/)
 
 ## License
