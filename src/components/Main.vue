@@ -3,7 +3,7 @@
     <div class="album py-5 bg-light">
         <figure class="text-center">
           <blockquote class="blockquote">
-              <p class="display-5">My last nine projects</p>
+              <p class="display-5">My last {{numberOfProjects}} projects</p>
           </blockquote>
           <figcaption class="blockquote-footer">
               Coding <cite title="non-stop">everyday</cite>
@@ -26,7 +26,7 @@ import RepoCard from '@/components/RepoCard.vue'
 
 export default {
   name: 'Main',
-  props: ['repos'],
+  props: ['repos', 'numberOfProjects'],
   components: {
     RepoCard
   }

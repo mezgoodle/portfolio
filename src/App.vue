@@ -6,6 +6,7 @@
     <Main 
       v-else-if="repos.length"
       v-bind:repos="repos"
+      v-bind:numberOfProjects="numberOfProjects"
     />
     <div v-else class="container alert alert-danger text-center" role="alert">
       No projects
@@ -26,13 +27,23 @@ export default {
   data () {
     return {
       repos: [],
+      numberOfProjects: 0,
       loading: true
     }
   },
   async mounted () {
     const res = await fetch('https://api.github.com/users/mezgoodle/repos?sort=updated');
-    const repos = await res.json();
+    const repos = [];
+    for (const repo of await res.json()) {
+      if (!repo.archived) {
+        console.log('hello');
+        repos.push(repo);
+      }
+      console.log('non hello')
+    }
+    console.log(repos);
     this.repos = repos.slice(0, 9);
+    this.numberOfProjects = repos.length;
     this.loading = false;
   },
   components: {
