@@ -36,12 +36,9 @@ export default {
     const repos = [];
     for (const repo of await res.json()) {
       if (!repo.archived) {
-        console.log('hello');
         repos.push(repo);
       }
-      console.log('non hello')
     }
-    console.log(repos);
     this.repos = repos.slice(0, 9);
     this.numberOfProjects = repos.length;
     this.loading = false;
