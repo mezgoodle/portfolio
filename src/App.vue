@@ -39,7 +39,7 @@ export default {
         repos.push(repo);
       }
     }
-    this.repos = repos.slice(0, 9);
+    this.repos = repos.slice(0, 8);
     this.numberOfProjects = repos.length;
     this.loading = false;
   },
