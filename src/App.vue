@@ -40,7 +40,7 @@ export default {
       }
     }
     this.repos = repos.slice(0, 8);
-    this.numberOfProjects = repos.length;
+    this.numberOfProjects = this.repos.length;
     this.loading = false;
   },
   components: {
