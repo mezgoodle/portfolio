@@ -1,8 +1,14 @@
+import ProjectCard from "@/components/ProjectCard";
 import { createClient } from "contentful";
 
 export default function Home({ projects }) {
-  console.log(projects);
-  return <div>Home</div>;
+  return (
+    <div>
+      {projects.map((project) => (
+        <ProjectCard key={project.sys.id} project={project} />
+      ))}
+    </div>
+  );
 }
 
 export async function getStaticProps() {
