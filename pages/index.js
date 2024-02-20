@@ -3,18 +3,12 @@ import { createClient } from "contentful";
 
 export default function Home({ projects }) {
   return (
-    <div className="project-list">
-      {projects.map((project) => (
-        <ProjectCard key={project.sys.id} project={project} />
-      ))}
-
-      <style jsx>{`
-        .project-list {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-gap: 20px 60px;
-        }
-      `}</style>
+    <div className="container">
+      <div className="row">
+        {projects.map((project) => (
+          <ProjectCard key={project.sys.id} project={project} />
+        ))}
+      </div>
     </div>
   );
 }
