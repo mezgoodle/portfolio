@@ -7,6 +7,7 @@
     <h2>Посилання</h2>
     <ul>
       <li v-for="(link, index) in links" :key="index">
+        <component :is="link.icon" />
         <NuxtLink :to="link.url">{{ link.name }}</NuxtLink>
       </li>
     </ul>
@@ -14,8 +15,9 @@
 </template>
 
 <script setup>
+import { Github, Linkedin } from "lucide-vue-next";
 const links = [
-  { name: "GitHub", url: "https://github.com/" },
-  { name: "LinkedIn", url: "https://linkedin.com/" },
+  { name: "GitHub", url: "https://github.com/", icon: Github },
+  { name: "LinkedIn", url: "https://linkedin.com/", icon: Linkedin },
 ];
 </script>
