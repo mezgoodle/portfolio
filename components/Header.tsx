@@ -7,6 +7,12 @@ const Header = () => {
         <Link href="/" className="navbar-brand">
           Моє портфоліо
         </Link>
+        <Link href="/projects" className="btn btn-secondary">
+          Проєкти
+        </Link>
+        <Link href="/games" className="btn btn-secondary">
+          Ігри
+        </Link>
       </div>
     </header>
   );
