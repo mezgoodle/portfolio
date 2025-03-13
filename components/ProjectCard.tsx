@@ -46,7 +46,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {" "}
           {/* Use flexbox for button alignment */}
           <Link
-            href={`/projects/${project.title}`}
+            href={`/projects/${project.id}`}
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
