@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="bg-light py-3 text-center fixed-bottom">
-      <p>© {new Date().getFullYear()} Твоє ім'я</p>
+      <p>© {new Date().getFullYear()} Maksym Zavalniuk</p>
     </footer>
   );
 };
