@@ -1,3 +1,5 @@
+import Hobbies from "@/components/Hobbies";
+import Hobby from "@/lib/interfaces/Hobby";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -14,12 +16,6 @@ import { SiTypescript, SiJavascript, SiSupabase } from "react-icons/si";
 interface Skill {
   name: string;
   icon?: React.ReactNode;
-}
-
-interface Hobby {
-  name: string;
-  description?: string; // Optional description
-  icon?: string; // Optional icon URL or class name
 }
 
 interface SocialLink {
@@ -153,30 +149,7 @@ export default function Page() {
       </div>
 
       {/* Hobbies */}
-      <div className="row mt-5">
-        <div className="col">
-          <h2>Hobbies</h2>
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            {hobbies.map((hobby) => (
-              <div key={hobby.name} className="col">
-                <div className="card h-100">
-                  {" "}
-                  {/* Make cards equal height */}
-                  <div className="card-body">
-                    {hobby.icon && (
-                      <i className={`${hobby.icon} fa-2x mb-2`}></i>
-                    )}
-                    <h5 className="card-title">{hobby.name}</h5>
-                    {hobby.description && (
-                      <p className="card-text">{hobby.description}</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <Hobbies hobbies={hobbies} />
 
       {/* Contact Section (Optional) */}
       <div className="row mt-5">
