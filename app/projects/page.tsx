@@ -1,6 +1,5 @@
 import ProjectCard from "@/components/ProjectCard";
 import { supabase } from "@/lib/supabaseClient";
-import Link from "next/link";
 
 export default async function projects() {
   const { data: projects } = await supabase.from("projects").select();
