@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 interface Project {
@@ -19,9 +20,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       {" "}
       {/* Added margin-bottom and shadow */}
       {project.image && ( // Conditionally render the image
-        <img
+        <Image
           src={project.image}
           alt={project.title}
+          width={200}
+          height={200}
           className="card-img-top"
           style={{ objectFit: "cover", height: "200px" }} // Adjust height as needed
         />

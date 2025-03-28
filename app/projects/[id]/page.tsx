@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabaseClient";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function Page({
   params,
@@ -23,9 +24,11 @@ export default async function Page({
       <div className="row">
         <div className="col-md-8">
           {project.image && (
-            <img
+            <Image
               src={project.image}
               alt={project.title}
+              width={200}
+              height={200}
               className="img-fluid mb-4 rounded" // Use Bootstrap's responsive image class and rounded corners
               style={{ width: "100%", maxHeight: "500px", objectFit: "cover" }} // Optional: Limit maximum height
             />

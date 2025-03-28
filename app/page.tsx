@@ -96,11 +96,12 @@ export default function Page() {
           <h1 className="mb-3">Your Name</h1>
           <h4 className="mb-4 text-muted">Web Developer</h4>
           <p className="lead">
-            I'm a passionate web developer with experience in building modern
-            and responsive websites and web applications. I specialize in
-            front-end development using React, Next.js, and TypeScript. I'm also
-            proficient in back-end technologies like Node.js and Supabase. I'm
-            always eager to learn new technologies and improve my skills.
+            I&apos;m a passionate web developer with experience in building
+            modern and responsive websites and web applications. I specialize in
+            front-end development using React, Next.js, and TypeScript. I&apos;m
+            also proficient in back-end technologies like Node.js and Supabase.
+            I&apos;m always eager to learn new technologies and improve my
+            skills.
           </p>
           <p>
             {" "}
