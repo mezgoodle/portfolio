@@ -83,7 +83,7 @@ export default function Page() {
         <div className="col-lg-4 text-center mb-4">
           {/* Profile Picture */}
           <Image
-            src="/images/your-profile-picture.jpg" // Replace with your actual image path
+            src="https://srcdpgjsavojeassrvej.supabase.co/storage/v1/object/sign/photos/Classic%20gradient%2002.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90b3MvQ2xhc3NpYyBncmFkaWVudCAwMi5wbmciLCJpYXQiOjE3NDMxOTM4MjUsImV4cCI6MTEyMDM5OTM4MjV9.ltnUBJ5O0QOx1twHFPAh-8x4m1mTDt9556YLrQiAOXM" // Replace with your actual image path
             alt="Your Name"
             width={250} // Adjust as needed
             height={250} // Adjust as needed
@@ -136,7 +136,7 @@ export default function Page() {
       {/* Skills */}
       <div className="row mt-5">
         <div className="col">
-          <h2>Skills</h2>
+          <h2>Programming skills</h2>
           <div className="d-flex flex-wrap">
             {skills.map((skill) => (
               <span key={skill.name} className="badge bg-primary m-1 p-2 fs-6">

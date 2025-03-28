@@ -39,7 +39,7 @@ export default async function Page({
           {project.skills && project.skills.length > 0 && (
             <div className="mb-4">
               <h4>Skills</h4>
-              {project.skills.map((skill) => (
+              {project.skills.map((skill: string) => (
                 <span key={skill} className="badge bg-secondary me-2">
                   {skill}
                 </span>
