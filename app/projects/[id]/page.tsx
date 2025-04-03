@@ -20,7 +20,9 @@ export default async function Page({
       <div className="container mt-5">
         <div className="alert alert-danger" role="alert">
           <h4 className="alert-heading">Oops, something went wrong!</h4>
-          <p>We couldn't load the project details. Please try again later.</p>
+          <p>
+            We couldn&apos;t load the project details. Please try again later.
+          </p>
         </div>
         <Link href="/projects" className="btn btn-secondary">
           ← Back to Projects
