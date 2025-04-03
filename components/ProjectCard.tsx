@@ -18,15 +18,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div className="card mb-4 shadow-sm">
       {" "}
-      {/* Added margin-bottom and shadow */}
       {project.image && ( // Conditionally render the image
         <Image
           src={project.image}
           alt={project.title}
-          width={200}
-          height={200}
+          width={500}
+          height={300}
           className="card-img-top"
-          style={{ objectFit: "cover", height: "200px" }} // Adjust height as needed
+          style={{ objectFit: "cover" }} // Adjust height as needed
         />
       )}
       <div className="card-body">

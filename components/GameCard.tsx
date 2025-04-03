@@ -35,6 +35,7 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
           className="card-img-top"
           width={200}
           height={200}
+          style={{ objectFit: "cover" }}
         />
       )}
       <div className="card-body">
@@ -44,6 +45,14 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
         <p className="card-text">
           Achievements: {game.num_of_achievements} / {game.total_achievements}
         </p>
+        <a
+          href={game.link_to_game}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary mt-2"
+        >
+          Play Game
+        </a>
       </div>
     </div>
   );

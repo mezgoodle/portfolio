@@ -16,7 +16,17 @@ export default async function Page({
 
   if (error) {
     console.error(error);
-    return <h1>Oops, something went wrong!</h1>;
+    return (
+      <div className="container mt-5">
+        <div className="alert alert-danger" role="alert">
+          <h4 className="alert-heading">Oops, something went wrong!</h4>
+          <p>We couldn't load the project details. Please try again later.</p>
+        </div>
+        <Link href="/projects" className="btn btn-secondary">
+          ← Back to Projects
+        </Link>
+      </div>
+    );
   }
 
   return (
@@ -27,15 +37,13 @@ export default async function Page({
             <Image
               src={project.image}
               alt={project.title}
-              width={200}
-              height={200}
-              className="img-fluid mb-4 rounded" // Use Bootstrap's responsive image class and rounded corners
-              style={{ width: "100%", maxHeight: "500px", objectFit: "cover" }} // Optional: Limit maximum height
+              width={800}
+              height={500}
+              className="img-fluid mb-4 rounded project-image"
             />
           )}
           <h1>{project.title}</h1>
           <p className="lead">{project.description}</p>{" "}
-          {/* Use "lead" class for larger text */}
           {project.skills && project.skills.length > 0 && (
             <div className="mb-4">
               <h4>Skills</h4>
@@ -46,14 +54,16 @@ export default async function Page({
               ))}
             </div>
           )}
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary btn-lg" // Larger button
-          >
-            View Project
-          </a>
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary btn-lg"
+            >
+              View Project
+            </a>
+          )}
         </div>
 
         {/* Sidebar (Optional) */}
@@ -65,7 +75,11 @@ export default async function Page({
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item">
                     <strong>Created At:</strong>{" "}
-                    {new Date(project.created_at).toLocaleDateString()}
+                    {new Date(project.created_at).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
                   </li>
                   {/* Add more project details here as needed */}
                 </ul>

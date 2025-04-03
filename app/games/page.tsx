@@ -8,12 +8,8 @@ export default async function games() {
   }
   return (
     <div className="container">
-      {" "}
-      {/* Use container for responsiveness */}
-      <h1 className="my-4">Games</h1> {/* Add a heading */}
+      <h1 className="my-4">Games</h1>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        {" "}
-        {/* Use grid layout */}
         {games.map((game) => (
           <div key={game.id} className="col">
             <GameCard game={game} />

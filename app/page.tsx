@@ -61,20 +61,24 @@ export default function Page() {
   const socialLinks: SocialLink[] = [
     {
       name: "GitHub",
-      url: "https://github.com/yourusername",
+      url: "https://github.com/mezgoodle",
       icon: "fab fa-github",
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://linkedin.com/in/mezgoodle",
       icon: "fab fa-linkedin",
     },
     {
-      name: "Twitter",
-      url: "https://twitter.com/yourusername",
-      icon: "fab fa-twitter",
+      name: "Email",
+      url: "mailto:ZkM9o@example.com",
+      icon: "fas fa-envelope",
     },
-    // Add more social links as needed
+    {
+      name: "Instagram",
+      url: "https://instagram.com/sylvenis",
+      icon: "fab fa-instagram",
+    },
   ];
 
   return (
@@ -93,7 +97,7 @@ export default function Page() {
         </div>
         <div className="col-lg-8">
           {/* About Me */}
-          <h1 className="mb-3">Your Name</h1>
+          <h1 className="mb-3">Maksym Zavalniuk</h1>
           <h4 className="mb-4 text-muted">Web Developer</h4>
           <p className="lead">
             I&apos;m a passionate web developer with experience in building
@@ -125,7 +129,7 @@ export default function Page() {
                 className="me-3"
                 title={link.name}
               >
-                <i className={`${link.icon} fa-2x`}></i>{" "}
+                <i className={`${link.icon} fa-2x`} />{" "}
                 {/* Use FontAwesome icons */}
               </a>
             ))}
