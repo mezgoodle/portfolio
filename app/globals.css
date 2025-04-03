@@ -1,8 +1,12 @@
-/* styles/globals.css */
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-/* Додай свої глобальні стилі тут (якщо потрібно) */
 body {
-  padding-top: 4rem; /*  Відступ для фіксованого хедера */
-  padding-bottom: 4rem; /* Відступ для фіксованого футера */
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.project-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
 }
