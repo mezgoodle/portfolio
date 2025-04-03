@@ -11,7 +11,7 @@ const HobbyComponent: React.FC<HobbyProps> = ({ name, icon, description }) => {
     <div className="col">
       <div className="card h-100">
         <div className="card-body">
-          {icon && <i className={`${icon} fa-2x mb-2`} />}
+          {icon && <i className={`${icon} fa-2x mb-2`} aria-hidden="true" />}
           <h5 className="card-title">{name}</h5>
           {description && <p className="card-text">{description}</p>}
         </div>

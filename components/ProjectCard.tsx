@@ -45,10 +45,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         )}
 
         <div className="d-flex justify-content-between align-items-center">
-          {" "}
-          {/* Use flexbox for button alignment */}
           <Link
-            href={`/projects/${project.id}`}
+            href={`/projects/${encodeURIComponent(project.id)}`}
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
