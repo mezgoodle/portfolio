@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { IoStarOutline, IoStar } from "react-icons/io5";
 import Image from "next/image";
 import CustomImageModal from "@/components/CustomImageModal";
+import { BsImages } from "react-icons/bs";
 
 interface Game {
   id: number;
@@ -38,10 +39,11 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
 
   const firstImage =
     game.images && game.images.length > 0 ? game.images[0] : null;
+  const imageCount = game.images ? game.images.length : 0;
 
   return (
     <>
-      <div className="card h-100">
+      <div className="card h-100 shadow-sm">
         {firstImage && (
           <div
             onClick={game.images.length > 0 ? openModal : undefined}
@@ -60,6 +62,16 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
               objectFit="cover"
               className="card-img-top"
             />
+            {imageCount > 1 && (
+              <span
+                className="badge bg-dark text-white position-absolute top-0 end-0 m-2 rounded-pill d-flex align-items-center"
+                style={{ zIndex: 1 }}
+                title={`${imageCount} images available`}
+              >
+                <BsImages className="me-1" />
+                {imageCount}
+              </span>
+            )}
           </div>
         )}
 
