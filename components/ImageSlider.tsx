@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
 interface ImageSliderProps {
   images: string[];
@@ -37,7 +38,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, altTextPrefix }) => {
           width={500}
           height={300}
           objectFit="contain"
-          priority={false}
+          priority={currentIndex === 0}
         />
       </div>
 
@@ -48,7 +49,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, altTextPrefix }) => {
             onClick={goToPrevious}
             style={{ zIndex: 1 }}
           >
-            &lt;
+            <IoChevronBack size={24} color="white" />
           </button>
 
           <button
@@ -56,7 +57,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, altTextPrefix }) => {
             onClick={goToNext}
             style={{ zIndex: 1 }}
           >
-            &gt;
+            <IoChevronForward size={24} color="white" />
           </button>
         </>
       )}

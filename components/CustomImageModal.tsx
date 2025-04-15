@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import ImageSlider from "./ImageSlider";
+import { IoClose } from "react-icons/io5";
 
 interface CustomImageModalProps {
   isOpen: boolean;
@@ -23,9 +24,13 @@ const CustomImageModal: React.FC<CustomImageModalProps> = ({
       }
     };
     if (isOpen) {
+      document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleEsc);
+    } else {
+      document.body.style.overflow = "auto";
     }
     return () => {
+      document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleEsc);
     };
   }, [isOpen, onClose]);
@@ -52,11 +57,13 @@ const CustomImageModal: React.FC<CustomImageModalProps> = ({
 
         <button
           type="button"
-          className="btn-close position-absolute top-0 end-0 m-2 p-2 bg-white rounded-circle"
+          className="btn btn-light bg-white rounded-circle position-absolute top-0 end-0 m-2 p-1 lh-1 border-0 shadow-sm" // Оновлено стилі
           aria-label="Close"
           onClick={onClose}
-          style={{ zIndex: 10 }}
-        ></button>
+          style={{ zIndex: 10 }} // Вище за слайдер
+        >
+          <IoClose size={28} /> {/* Іконка закриття */}
+        </button>
 
         <ImageSlider images={images} altTextPrefix={gameName} />
       </div>
