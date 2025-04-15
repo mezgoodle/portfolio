@@ -29,10 +29,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, altTextPrefix }) => {
 
   return (
     <div className="position-relative text-center">
-      <div style={{ width: "100%", height: "60vh", position: "relative" }}>
+      <div style={{ width: "100%", height: "100%", position: "relative" }}>
         <Image
           src={images[currentIndex]}
           alt={`${altTextPrefix} - Image ${currentIndex + 1}`}
+          className="img-fluid"
           width={500}
           height={300}
           objectFit="contain"
