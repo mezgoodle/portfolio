@@ -10,3 +10,25 @@ body {
   max-height: 500px;
   object-fit: cover;
 }
+
+.backdropStyle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalStyle {
+  position: relative;
+  z-index: 1051;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  width: "100%";
+}
