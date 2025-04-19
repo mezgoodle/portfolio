@@ -46,9 +46,9 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
       <div className="card h-100 shadow-sm">
         {firstImage && (
           <div
-            onClick={game.images.length > 0 ? openModal : undefined}
+            onClick={openModal}
             style={{
-              cursor: game.images.length > 0 ? "pointer" : "default",
+              cursor: "pointer",
               position: "relative",
               width: "100%",
               aspectRatio: "16 / 9",
@@ -75,7 +75,6 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
           </div>
         )}
 
-        {/* Тіло картки */}
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">{game.name}</h5>
           <p className="card-text">{game.review}</p>
