@@ -1,0 +1,47 @@
+import { FaGithub, FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
+import { IconType } from "react-icons";
+
+export interface SocialLink {
+  id: number;
+  title: string;
+  url: string;
+  icon_name: string;
+}
+
+const iconMap: { [key: string]: IconType } = {
+  FaGithub,
+  FaLinkedin,
+  FaTelegram,
+  FaTwitter,
+};
+
+interface SocialLinksProps {
+  links: SocialLink[];
+}
+
+export default function SocialLinks({ links }: SocialLinksProps) {
+  return (
+    <section className="text-center mb-16">
+      <h2 className="text-3xl font-bold mb-8 border-l-4 border-teal-500 pl-4 inline-block">
+        Мої посилання
+      </h2>
+      <div className="flex justify-center items-center gap-6 mt-4">
+        {links.map((link) => {
+          const IconComponent = iconMap[link.icon_name];
+          return (
+            <a
+              key={link.id}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.title}
+              className="text-gray-400 hover:text-teal-400 transition-colors duration-300"
+            >
+              {IconComponent && <IconComponent size={32} />}
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

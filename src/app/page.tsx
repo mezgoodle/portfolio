@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import Card from "@/components/Card";
 import ImageGallery from "@/components/ImageGallery";
+import SocialLinks, { SocialLink } from "@/components/SocialLinks";
 
 interface Project {
   id: number;
@@ -25,6 +26,7 @@ interface Game {
 export default function HomePage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [games, setGames] = useState<Game[]>([]);
+  const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
 
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
@@ -43,6 +45,12 @@ export default function HomePage() {
         .select("*");
       if (gamesData) setGames(gamesData);
       if (gamesError) console.error("Error fetching games:", gamesError);
+
+      const { data: linksData, error: linksError } = await supabase
+        .from("links")
+        .select("*");
+      if (linksData) setSocialLinks(linksData);
+      if (linksError) console.error("Error fetching links:", linksError);
     };
 
     fetchData();
@@ -56,12 +64,17 @@ export default function HomePage() {
   return (
     <main className="bg-gray-900 text-white min-h-screen p-8 md:p-16">
       <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4">Привіт, я [Ваше Ім'я]</h1>
+        <h1 className="text-5xl font-bold mb-4">
+          Hello, my name is Maksym Zavalniuk. You can also know me as Mezgoodle
+          or Sylvenis.
+        </h1>
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
           Тут ви можете написати коротку інформацію про себе: чим ви займаєтесь,
           які технології вас цікавлять, і що ви любите робити.
         </p>
       </section>
+
+      <SocialLinks links={socialLinks} />
 
       {/* Секція Проектів */}
       <section className="mb-16">
