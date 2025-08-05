@@ -87,7 +87,7 @@ export default function HomePage() {
               key={project.id}
               title={project.title}
               description={project.description}
-              imageUrl={project.images[0]} // Використовуємо перше фото як обкладинку
+              imageUrl={project.images[0] || "/placeholder-image.jpg"} // Використовуємо перше фото як обкладинку
               tags={project.technologies}
               onClick={() => openGallery(project.images)}
             />

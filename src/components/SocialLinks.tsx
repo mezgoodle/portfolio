@@ -1,4 +1,10 @@
-import { FaGithub, FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTelegram,
+  FaTwitter,
+  FaGlobe,
+} from "react-icons/fa";
 import { IconType } from "react-icons";
 
 export interface SocialLink {
@@ -13,6 +19,7 @@ const iconMap: { [key: string]: IconType } = {
   FaLinkedin,
   FaTelegram,
   FaTwitter,
+  FaGlobe,
 };
 
 interface SocialLinksProps {
@@ -27,7 +34,7 @@ export default function SocialLinks({ links }: SocialLinksProps) {
       </h2>
       <div className="flex justify-center items-center gap-6 mt-4">
         {links.map((link) => {
-          const IconComponent = iconMap[link.icon_name];
+          const IconComponent = iconMap[link.icon_name] || iconMap.FaGlobe;
           return (
             <a
               key={link.id}
@@ -37,7 +44,7 @@ export default function SocialLinks({ links }: SocialLinksProps) {
               aria-label={link.title}
               className="text-gray-400 hover:text-teal-400 transition-colors duration-300"
             >
-              {IconComponent && <IconComponent size={32} />}
+              <IconComponent size={32} />
             </a>
           );
         })}

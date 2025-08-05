@@ -19,9 +19,17 @@ export default function Card({
     <div
       className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
+        }
+      }}
     >
       <div className="relative w-full h-48">
-        <Image src={imageUrl} alt={title} layout="fill" objectFit="cover" />
+        <Image src={imageUrl} alt={title} className="object-cover" fill />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
