@@ -1,11 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface CardProps {
   title: string;
   description: string;
   imageUrl: string;
   tags?: string[];
-  onClick: () => void;
+  linkUrl?: string;
+  onClick?: () => void;
 }
 
 export default function Card({
@@ -13,29 +15,28 @@ export default function Card({
   description,
   imageUrl,
   tags,
+  linkUrl,
   onClick,
 }: CardProps) {
-  return (
+  const CardContent = (
     <div
-      className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"
-      onClick={onClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onClick();
-        }
-      }}
+      className={`bg-gray-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col transition-transform duration-300 ${
+        linkUrl ? "group-hover:scale-105" : "hover:scale-105"
+      }`}
     >
       <div className="relative w-full h-48">
-        <Image src={imageUrl} alt={title} className="object-cover" fill />
+        <Image src={imageUrl} alt={title} layout="fill" objectFit="cover" />
       </div>
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-gray-400 mb-4">{description}</p>
+
+        <p className="text-gray-400 mb-4 flex-grow">
+          {linkUrl && description.length > 100
+            ? `${description.substring(0, 100)}...`
+            : description}
+        </p>
         {tags && (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mt-auto">
             {tags.map((tag) => (
               <span
                 key={tag}
@@ -47,6 +48,20 @@ export default function Card({
           </div>
         )}
       </div>
+    </div>
+  );
+
+  if (linkUrl) {
+    return (
+      <Link href={linkUrl} className="block group">
+        {CardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <div onClick={onClick} className="cursor-pointer">
+      {CardContent}
     </div>
   );
 }

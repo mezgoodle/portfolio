@@ -4,30 +4,7 @@ import { useState } from "react";
 import Card from "@/components/Card";
 import ImageGallery from "@/components/ImageGallery";
 import SocialLinks from "@/components/SocialLinks";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  images: string[];
-  github_url: string;
-}
-
-interface Game {
-  id: number;
-  title: string;
-  platform: string;
-  review: string;
-  images: string[];
-}
-
-interface SocialLink {
-  id: number;
-  title: string;
-  url: string;
-  icon_name: string;
-}
+import type { Project, Game, SocialLink } from "@/types";
 
 interface PortfolioViewProps {
   projects: Project[];
@@ -77,7 +54,7 @@ export default function PortfolioView({
               description={project.description}
               imageUrl={project.images[0]}
               tags={project.technologies}
-              onClick={() => openGallery(project.images)}
+              linkUrl={`/projects/${project.slug}`}
             />
           ))}
         </div>
