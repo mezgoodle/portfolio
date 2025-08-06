@@ -51,7 +51,10 @@ export default function PortfolioView({
   return (
     <main className="bg-gray-900 text-white min-h-screen p-8 md:p-16">
       <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4">Привіт, я [Ваше Ім'я]</h1>
+        <h1 className="text-5xl font-bold mb-4">
+          Hello, I am Maksym Zavalniuk. You can also know me as Mezgoodle or
+          Sylvenis.
+        </h1>
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
           Тут ви можете написати коротку інформацію про себе: чим ви займаєтесь,
           які технології вас цікавлять, і що ви любите робити.
