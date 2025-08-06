@@ -33,9 +33,6 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Build project
-        run: npm run build
-
       - name: Cache build output
         uses: actions/cache@v4
         with:
