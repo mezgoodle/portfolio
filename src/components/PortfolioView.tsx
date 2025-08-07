@@ -4,30 +4,7 @@ import { useState } from "react";
 import Card from "@/components/Card";
 import ImageGallery from "@/components/ImageGallery";
 import SocialLinks from "@/components/SocialLinks";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  images: string[];
-  github_url: string;
-}
-
-interface Game {
-  id: number;
-  title: string;
-  platform: string;
-  review: string;
-  images: string[];
-}
-
-interface SocialLink {
-  id: number;
-  title: string;
-  url: string;
-  icon_name: string;
-}
+import type { Project, Game, SocialLink } from "@/types";
 
 interface PortfolioViewProps {
   projects: Project[];
@@ -75,9 +52,13 @@ export default function PortfolioView({
               key={project.id}
               title={project.title}
               description={project.description}
-              imageUrl={project.images[0]}
+              imageUrl={
+                project.images && project.images.length > 0
+                  ? project.images[0]
+                  : undefined
+              }
               tags={project.technologies}
-              onClick={() => openGallery(project.images)}
+              linkUrl={`/projects/${project.slug}`}
             />
           ))}
         </div>
@@ -94,8 +75,16 @@ export default function PortfolioView({
               key={game.id}
               title={game.title}
               description={game.review || `Платформа: ${game.platform}`}
-              imageUrl={game.images[0]}
-              onClick={() => openGallery(game.images)}
+              imageUrl={
+                game.images && game.images.length > 0
+                  ? game.images[0]
+                  : undefined
+              }
+              onClick={
+                game.images && game.images.length > 0
+                  ? () => openGallery(game.images)
+                  : undefined
+              }
             />
           ))}
         </div>

@@ -8,6 +8,8 @@ export default async function HomePage() {
     supabase.from("links").select("*"),
   ]);
 
+  console.log("Projects:", projectsRes.data);
+
   return (
     <PortfolioView
       projects={projectsRes.data || []}
