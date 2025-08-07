@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DEFAULT_IMAGE_URL } from "@/lib/constants";
 
 interface CardProps {
   title: string;
   description: string;
-  imageUrl: string;
+  imageUrl?: string;
   tags?: string[];
   linkUrl?: string;
   onClick?: () => void;
@@ -18,6 +19,8 @@ export default function Card({
   linkUrl,
   onClick,
 }: CardProps) {
+  const displayImageUrl = imageUrl || DEFAULT_IMAGE_URL;
+
   const CardContent = (
     <div
       className={`bg-gray-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col transition-transform duration-300 ${
@@ -25,7 +28,7 @@ export default function Card({
       }`}
     >
       <div className="relative w-full h-48">
-        <Image src={imageUrl} alt={title} layout="fill" objectFit="cover" />
+        <Image src={displayImageUrl} alt={title} layout="fill" />
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-white mb-2">{title}</h3>

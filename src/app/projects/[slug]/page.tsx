@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { FaGithub, FaLink } from "react-icons/fa";
 import type { Project } from "@/types";
+import { DEFAULT_IMAGE_URL } from "@/lib/constants";
 
 async function getProject(slug: string): Promise<Project> {
   const { data, error } = await supabase
@@ -23,20 +24,18 @@ export default async function ProjectDetailPage({
 }: {
   params: { slug: string };
 }) {
-  const project = await getProject(params.slug);
+  const { slug } = await params;
+  const project = await getProject(slug);
+
+  const hasImages = project.images && project.images.length > 0;
+  const mainImage = hasImages ? project.images[0] : DEFAULT_IMAGE_URL;
 
   return (
     <main className="bg-gray-900 text-white min-h-screen">
       <div className="container mx-auto px-4 py-16">
         {/* Хедер сторінки */}
         <div className="relative w-full h-60 md:h-96 rounded-lg overflow-hidden mb-8">
-          <Image
-            src={project.images[0]}
-            alt={project.title}
-            layout="fill"
-            objectFit="cover"
-            priority
-          />
+          <Image src={mainImage} alt={project.title} layout="fill" priority />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <h1 className="text-4xl md:text-6xl font-bold text-center text-white drop-shadow-lg">
               {project.title}
@@ -53,25 +52,28 @@ export default async function ProjectDetailPage({
               {project.description}
             </p>
 
-            <h2 className="text-2xl font-bold text-teal-400 mt-8 mb-4">
-              Галерея
-            </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-              {project.images.map((img, index) => (
-                <div
-                  key={index}
-                  className="relative aspect-video rounded-lg overflow-hidden"
-                >
-                  <Image
-                    src={img}
-                    alt={`${project.title} screenshot ${index + 1}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="hover:scale-110 transition-transform duration-300"
-                  />
+            {hasImages && (
+              <>
+                <h2 className="text-2xl font-bold text-teal-400 mt-8 mb-4">
+                  Галерея
+                </h2>
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  {project.images.map((img, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-lg overflow-hidden"
+                    >
+                      <Image
+                        src={img}
+                        alt={`${project.title} screenshot ${index + 1}`}
+                        layout="fill"
+                        className="hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </>
+            )}
           </div>
 
           {/* Сайдбар */}

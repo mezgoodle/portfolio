@@ -52,7 +52,11 @@ export default function PortfolioView({
               key={project.id}
               title={project.title}
               description={project.description}
-              imageUrl={project.images[0]}
+              imageUrl={
+                project.images && project.images.length > 0
+                  ? project.images[0]
+                  : undefined
+              }
               tags={project.technologies}
               linkUrl={`/projects/${project.slug}`}
             />
@@ -71,8 +75,16 @@ export default function PortfolioView({
               key={game.id}
               title={game.title}
               description={game.review || `Платформа: ${game.platform}`}
-              imageUrl={game.images[0]}
-              onClick={() => openGallery(game.images)}
+              imageUrl={
+                game.images && game.images.length > 0
+                  ? game.images[0]
+                  : undefined
+              }
+              onClick={
+                game.images && game.images.length > 0
+                  ? () => openGallery(game.images)
+                  : undefined
+              }
             />
           ))}
         </div>
