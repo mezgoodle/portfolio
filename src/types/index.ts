@@ -16,6 +16,8 @@ export interface Game {
   platform: string;
   review: string;
   images: string[];
+  total_number_of_achievements: number;
+  my_number_of_achievements: number;
 }
 
 export interface SocialLink {

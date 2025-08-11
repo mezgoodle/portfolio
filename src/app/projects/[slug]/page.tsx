@@ -35,7 +35,13 @@ export default async function ProjectDetailPage({
       <div className="container mx-auto px-4 py-16">
         {/* Хедер сторінки */}
         <div className="relative w-full h-60 md:h-96 rounded-lg overflow-hidden mb-8">
-          <Image src={mainImage} alt={project.title} layout="fill" priority />
+          <Image
+            src={mainImage}
+            alt={project.title}
+            layout="fill"
+            priority
+            objectFit="cover"
+          />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <h1 className="text-4xl md:text-6xl font-bold text-center text-white drop-shadow-lg">
               {project.title}

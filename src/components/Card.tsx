@@ -28,7 +28,12 @@ export default function Card({
       }`}
     >
       <div className="relative w-full h-48">
-        <Image src={displayImageUrl} alt={title} layout="fill" />
+        <Image
+          src={displayImageUrl}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-white mb-2">{title}</h3>

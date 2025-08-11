@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Card from "@/components/Card";
+import GameCard from "@/components/GameCard";
 import ImageGallery from "@/components/ImageGallery";
 import SocialLinks from "@/components/SocialLinks";
 import type { Project, Game, SocialLink } from "@/types";
@@ -71,7 +72,7 @@ export default function PortfolioView({
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {games.map((game) => (
-            <Card
+            <GameCard
               key={game.id}
               title={game.title}
               description={game.review || `Платформа: ${game.platform}`}
@@ -85,6 +86,8 @@ export default function PortfolioView({
                   ? () => openGallery(game.images)
                   : undefined
               }
+              totalNumberOfAchievements={game.total_number_of_achievements}
+              myNumberOfAchievements={game.my_number_of_achievements}
             />
           ))}
         </div>
