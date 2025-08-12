@@ -1,7 +1,8 @@
 import { supabase } from "@/lib/supabaseClient";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
+import { FaGithub, FaArrowLeft } from "react-icons/fa";
 import type { Project } from "@/types";
 import { DEFAULT_IMAGE_URL } from "@/lib/constants";
 
@@ -32,7 +33,13 @@ export default async function ProjectDetailPage({
 
   return (
     <main className="bg-gray-900 text-white min-h-screen">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-3">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mb-2">
+          <Link href="/" className="flex items-center">
+            <FaArrowLeft className="inline-block mr-2" />
+            Назад
+          </Link>
+        </button>
         {/* Хедер сторінки */}
         <div className="relative w-full h-60 md:h-96 rounded-lg overflow-hidden mb-8">
           <Image
@@ -40,7 +47,7 @@ export default async function ProjectDetailPage({
             alt={project.title}
             fill
             priority
-            objectFit="cover"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <h1 className="text-4xl md:text-6xl font-bold text-center text-white drop-shadow-lg">
@@ -103,7 +110,7 @@ export default async function ProjectDetailPage({
                   <a
                     href={project.github_url}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="flex items-center gap-2 text-gray-300 hover:text-teal-400 transition-colors"
                   >
                     <FaGithub size={20} />

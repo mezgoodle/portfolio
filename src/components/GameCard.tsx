@@ -1,7 +1,8 @@
 import Card from "./Card";
 import { FaTrophy } from "react-icons/fa";
+import type { ComponentProps } from "react";
 
-interface GameCardProps extends React.ComponentProps<typeof Card> {
+interface GameCardProps extends ComponentProps<typeof Card> {
   totalNumberOfAchievements: number;
   myNumberOfAchievements: number;
 }
