@@ -1,7 +1,7 @@
 import { supabase } from "@/lib/supabaseClient";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { FaGithub, FaLink } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import type { Project } from "@/types";
 import { DEFAULT_IMAGE_URL } from "@/lib/constants";
 
@@ -22,7 +22,7 @@ async function getProject(slug: string): Promise<Project> {
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const project = await getProject(slug);
@@ -38,7 +38,7 @@ export default async function ProjectDetailPage({
           <Image
             src={mainImage}
             alt={project.title}
-            layout="fill"
+            fill
             priority
             objectFit="cover"
           />
@@ -72,7 +72,7 @@ export default async function ProjectDetailPage({
                       <Image
                         src={img}
                         alt={`${project.title} screenshot ${index + 1}`}
-                        layout="fill"
+                        fill
                         className="hover:scale-110 transition-transform duration-300"
                       />
                     </div>

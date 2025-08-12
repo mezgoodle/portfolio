@@ -6,13 +6,7 @@ import {
   FaGlobe,
 } from "react-icons/fa";
 import { IconType } from "react-icons";
-
-export interface SocialLink {
-  id: number;
-  title: string;
-  url: string;
-  icon_name: string;
-}
+import { SocialLink } from "@/types";
 
 const iconMap: { [key: string]: IconType } = {
   FaGithub,

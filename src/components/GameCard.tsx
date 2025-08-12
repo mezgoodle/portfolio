@@ -11,15 +11,12 @@ export default function GameCard({
   myNumberOfAchievements,
   ...cardProps
 }: GameCardProps) {
-  console.log("GameCard Props:", {
-    totalNumberOfAchievements,
-    myNumberOfAchievements,
-    ...cardProps,
-  });
-  const progressPercentage =
+  const rawPercentage =
     totalNumberOfAchievements > 0
       ? (myNumberOfAchievements / totalNumberOfAchievements) * 100
       : 0;
+  const progressPercentage = Math.max(0, Math.min(100, rawPercentage));
+
   return (
     <div className="relative group">
       <Card {...cardProps} />
@@ -45,6 +42,11 @@ export default function GameCard({
           <div
             className="bg-teal-400 h-2.5 rounded-full"
             style={{ width: `${progressPercentage}%` }}
+            role="progressbar"
+            aria-valuenow={Math.round(progressPercentage)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label="Achievement progress"
           ></div>
         </div>
 
