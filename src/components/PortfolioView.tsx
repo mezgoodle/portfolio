@@ -2,32 +2,10 @@
 
 import { useState } from "react";
 import Card from "@/components/Card";
+import GameCard from "@/components/GameCard";
 import ImageGallery from "@/components/ImageGallery";
 import SocialLinks from "@/components/SocialLinks";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  images: string[];
-  github_url: string;
-}
-
-interface Game {
-  id: number;
-  title: string;
-  platform: string;
-  review: string;
-  images: string[];
-}
-
-interface SocialLink {
-  id: number;
-  title: string;
-  url: string;
-  icon_name: string;
-}
+import type { Project, Game, SocialLink } from "@/types";
 
 interface PortfolioViewProps {
   projects: Project[];
@@ -75,9 +53,13 @@ export default function PortfolioView({
               key={project.id}
               title={project.title}
               description={project.description}
-              imageUrl={project.images[0]}
+              imageUrl={
+                project.images && project.images.length > 0
+                  ? project.images[0]
+                  : undefined
+              }
               tags={project.technologies}
-              onClick={() => openGallery(project.images)}
+              linkUrl={`/projects/${project.slug}`}
             />
           ))}
         </div>
@@ -90,12 +72,22 @@ export default function PortfolioView({
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {games.map((game) => (
-            <Card
+            <GameCard
               key={game.id}
               title={game.title}
               description={game.review || `Платформа: ${game.platform}`}
-              imageUrl={game.images[0]}
-              onClick={() => openGallery(game.images)}
+              imageUrl={
+                game.images && game.images.length > 0
+                  ? game.images[0]
+                  : undefined
+              }
+              onClick={
+                game.images && game.images.length > 0
+                  ? () => openGallery(game.images)
+                  : undefined
+              }
+              totalNumberOfAchievements={game.total_number_of_achievements}
+              myNumberOfAchievements={game.my_number_of_achievements}
             />
           ))}
         </div>
