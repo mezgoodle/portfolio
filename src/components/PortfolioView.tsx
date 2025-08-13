@@ -71,6 +71,8 @@ export default function PortfolioView({
             <button
               key={tech}
               onClick={() => setActiveFilter(tech)}
+              type="button"
+              aria-pressed={activeFilter === tech}
               className={`
                 px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-300
                 ${
