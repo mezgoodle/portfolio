@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Card from "@/components/Card";
 import GameCard from "@/components/GameCard";
 import ImageGallery from "@/components/ImageGallery";
@@ -21,10 +21,29 @@ export default function PortfolioView({
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
 
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+
   const openGallery = (images: string[]) => {
     setGalleryImages(images);
     setGalleryOpen(true);
   };
+
+  const allTechnologies = useMemo(() => {
+    const techSet = new Set<string>();
+    projects.forEach((project) => {
+      project.technologies.forEach((tech) => techSet.add(tech));
+    });
+    return ["All", ...Array.from(techSet).sort()]; // Додаємо 'All' і сортуємо
+  }, [projects]);
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === "All") {
+      return projects;
+    }
+    return projects.filter((project) =>
+      project.technologies.includes(activeFilter)
+    );
+  }, [activeFilter, projects]);
 
   return (
     <main className="bg-gray-900 text-white min-h-screen p-8 md:p-16">
@@ -47,8 +66,28 @@ export default function PortfolioView({
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-teal-500 pl-4">
           Мої проекти
         </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          {allTechnologies.map((tech) => (
+            <button
+              key={tech}
+              onClick={() => setActiveFilter(tech)}
+              type="button"
+              aria-pressed={activeFilter === tech}
+              className={`
+                px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-300
+                ${
+                  activeFilter === tech
+                    ? "bg-teal-500 text-white" // Стиль для активної кнопки
+                    : "bg-gray-800 text-gray-300 hover:bg-gray-700" // Стиль для неактивної
+                }
+              `}
+            >
+              {tech}
+            </button>
+          ))}
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <Card
               key={project.id}
               title={project.title}
