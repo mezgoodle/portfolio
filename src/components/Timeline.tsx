@@ -29,31 +29,31 @@ const TimelineItem = ({
 export default function Timeline() {
   return (
     <section className="mb-24">
-      <h2 className="text-4xl font-bold text-center mb-12">Мій шлях</h2>
+      <h2 className="text-4xl font-bold text-center mb-12">My journey</h2>
       <div>
         <TimelineItem
-          year="2023"
-          title="Початок кар'єри як Freelance Developer"
-          duration="2023 - дотепер"
-          details="Працював над різноманітними проектами для клієнтів, від простих лендінгів до складних веб-додатків, використовуючи React, Next.js та Node.js."
+          year="2024"
+          title="Start work and Integrations Developer"
+          duration="2024 - until now"
+          details="Start my official work at Jome as Integrations Developer."
         />
         <TimelineItem
-          year="2022"
-          title="Перший великий особистий проект"
-          duration="3 місяці"
-          details="Створив додаток для відстеження ігрової колекції, що стало моєю дипломною роботою. Це був перший досвід роботи з Supabase."
+          year="2023"
+          title="Master's Degree in Computer Science"
+          duration="2023 - 2024"
+          details="Get more work in science, take part in projects."
         />
         <TimelineItem
           year="2019"
-          title="Вступ до [Назва вашого університету]"
+          title="Bachelor's Degree in Computer Science"
           duration="2019 - 2023"
-          details="Навчався за спеціальністю 'Комп'ютерні науки'. Отримав глибокі знання з алгоритмів, структур даних та архітектури програмного забезпечення."
+          details="Improve my skills and knowledge in the field of computer science and more specific in web development."
         />
         <TimelineItem
           year="2018"
-          title="Зацікавленість програмуванням"
-          duration="Початок"
-          details="Написав свою першу програму 'Hello, World!' на Python і зрозумів, що це моє покликання."
+          title="Intro to Programming"
+          duration="2018 - 2019"
+          details="Writed my first 'Hello World' programm in Python and can't stop learning."
         />
       </div>
     </section>

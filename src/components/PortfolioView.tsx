@@ -33,7 +33,7 @@ export default function PortfolioView({
     projects.forEach((project) => {
       project.technologies.forEach((tech) => techSet.add(tech));
     });
-    return ["All", ...Array.from(techSet).sort()]; // Додаємо 'All' і сортуємо
+    return ["All", ...Array.from(techSet).sort()];
   }, [projects]);
 
   const filteredProjects = useMemo(() => {
@@ -53,18 +53,16 @@ export default function PortfolioView({
           Sylvenis.
         </h1>
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-          Тут ви можете написати коротку інформацію про себе: чим ви займаєтесь,
-          які технології вас цікавлять, і що ви любите робити.
+          This is my portfolio, where I showcase my skills and experience in web
+          development and also my passion for video games.
         </p>
       </section>
 
-      {/* Використовуємо дані з пропсів */}
       <SocialLinks links={links} />
 
-      {/* Секція Проектів */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-teal-500 pl-4">
-          Мої проекти
+          My projects
         </h2>
         <div className="flex flex-wrap gap-3 mb-8">
           {allTechnologies.map((tech) => (
@@ -77,8 +75,8 @@ export default function PortfolioView({
                 px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-300
                 ${
                   activeFilter === tech
-                    ? "bg-teal-500 text-white" // Стиль для активної кнопки
-                    : "bg-gray-800 text-gray-300 hover:bg-gray-700" // Стиль для неактивної
+                    ? "bg-teal-500 text-white"
+                    : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                 }
               `}
             >
@@ -107,7 +105,7 @@ export default function PortfolioView({
       {/* Секція Ігор */}
       <section>
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-teal-500 pl-4">
-          Пройдені ігри
+          Played games
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {games.map((game) => (
@@ -132,7 +130,6 @@ export default function PortfolioView({
         </div>
       </section>
 
-      {/* Компонент Галереї */}
       <ImageGallery
         isOpen={galleryOpen}
         close={() => setGalleryOpen(false)}
