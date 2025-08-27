@@ -31,7 +31,7 @@ export default function Loading() {
 
       <section>
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-teal-500 pl-4">
-          Played games
+          Games I've played
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Array.from({ length: 3 }).map((_, index) => (

@@ -54,7 +54,7 @@ export default function PortfolioView({
         </h1>
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
           This is my portfolio, where I showcase my skills and experience in web
-          development and also my passion for video games.
+          development and my passion for video games.
         </p>
       </section>
 
@@ -102,7 +102,6 @@ export default function PortfolioView({
         </div>
       </section>
 
-      {/* Секція Ігор */}
       <section>
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-teal-500 pl-4">
           Played games

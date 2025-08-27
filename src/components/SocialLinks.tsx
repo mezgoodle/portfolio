@@ -24,7 +24,7 @@ export default function SocialLinks({ links }: SocialLinksProps) {
   return (
     <section className="text-center mb-16">
       <h2 className="text-3xl font-bold mb-8 border-l-4 border-teal-500 pl-4 inline-block">
-        My socials links
+        My social links
       </h2>
       <div className="flex justify-center items-center gap-6 mt-4">
         {links.map((link) => {

@@ -15,7 +15,6 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Якщо користувач прокрутив більше ніж на 10px, змінюємо стан
       if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
@@ -23,7 +22,8 @@ export default function Header() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -40,7 +40,10 @@ export default function Header() {
         }
       `}
     >
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <nav
+        className="container mx-auto px-4 py-4 flex justify-between items-center"
+        aria-label="Primary"
+      >
         <Link
           href="/"
           className="text-2xl font-bold text-white hover:text-teal-400 transition-colors"
@@ -49,11 +52,15 @@ export default function Header() {
         </Link>
         <ul className="flex gap-6">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname?.startsWith(link.href);
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`
                     text-lg font-medium transition-colors
                     ${
