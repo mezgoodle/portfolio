@@ -35,10 +35,9 @@ export default function GameCard({
       >
         <div className="flex items-center gap-2 mb-2">
           <FaTrophy className="text-yellow-400" />
-          <h4 className="font-bold text-sm">Досягнення</h4>
+          <h4 className="font-bold text-sm">Achievements</h4>
         </div>
 
-        {/* Прогрес-бар */}
         <div className="w-full bg-gray-600 rounded-full h-2.5">
           <div
             className="bg-teal-400 h-2.5 rounded-full"
