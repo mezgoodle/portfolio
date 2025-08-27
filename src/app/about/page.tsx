@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Timeline from "@/components/Timeline";
 import { FaCode, FaPaintBrush, FaRocket } from "react-icons/fa";
 
